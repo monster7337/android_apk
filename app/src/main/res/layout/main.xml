@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:id="@+id/screen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:focusableInTouchMode="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/hero_frame"
+            android:clipToOutline="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_alignTop="@+id/hero_text"
+                android:layout_alignBottom="@id/hero_text"
+                android:importantForAccessibility="no"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hero" />
+
+            <LinearLayout
+                android:id="@id/hero_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="23dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.15"
+                    android:text="ЗАДАНИЕ № 4"
+                    android:textColor="#DAEC9C"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="serif"
+                    android:includeFontPadding="false"
+                    android:lineSpacingMultiplier="0.94"
+                    android:text="Корни\nуравнения"
+                    android:textColor="#FFFEF6"
+                    android:textSize="36sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="serif"
+                    android:text="ax⁴ − bx³ − cx² + d = 0"
+                    android:textColor="#D9E7D2"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/card"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                style="@style/Heading"
+                android:text="Коэффициенты" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/FieldLabel"
+                    android:layout_marginEnd="10dp"
+                    android:labelFor="@id/a"
+                    android:text="a" />
+
+                <TextView
+                    style="@style/FieldLabel"
+                    android:labelFor="@id/b"
+                    android:text="b" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/a"
+                    style="@style/NumberField"
+                    android:layout_marginEnd="10dp"
+                    android:nextFocusForward="@+id/b" />
+
+                <EditText
+                    android:id="@id/b"
+                    style="@style/NumberField"
+                    android:nextFocusForward="@+id/c" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/FieldLabel"
+                    android:layout_marginEnd="10dp"
+                    android:labelFor="@id/c"
+                    android:text="c" />
+
+                <TextView
+                    style="@style/FieldLabel"
+                    android:labelFor="@id/d"
+                    android:text="d" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@id/c"
+                    style="@style/NumberField"
+                    android:layout_marginEnd="10dp"
+                    android:nextFocusForward="@+id/d" />
+
+                <EditText
+                    android:id="@id/d"
+                    style="@style/NumberField"
+                    android:imeOptions="actionDone" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/solve"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button"
+                android:fontFamily="sans-serif-medium"
+                android:minHeight="54dp"
+                android:stateListAnimator="@null"
+                android:text="Решить уравнение"
+                android:textAllCaps="false"
+                android:textColor="#172D19"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:accessibilityLiveRegion="polite"
+            android:background="@drawable/card"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/Heading"
+                android:text="Действительные корни"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/method"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textColor="#486256"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:id="@+id/root_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/roots_left"
+                    style="@style/RootText"
+                    android:paddingEnd="6dp" />
+
+                <TextView
+                    android:id="@+id/roots_right"
+                    style="@style/RootText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/probe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="14dp"
+                    android:background="#DCE2D7" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.10"
+                    android:text="МЕТОД ПРОБ · ДО 0,01"
+                    android:textColor="#396452"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/approximation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="serif"
+                    android:textColor="#173F31"
+                    android:textIsSelectable="true"
+                    android:textSize="33sp" />
+
+                <TextView
+                    android:id="@+id/probe_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:lineSpacingExtra="3dp"
+                    android:textColor="#486256"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
